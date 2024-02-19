@@ -1,0 +1,16 @@
+PortfolioPage.css .portfolio-page {
+                    margin: 0 auto;
+                    padding: 20px;
+}
+
+.portfolio-item {
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    overflow: hidden;
+}
+
+.portfolio-item img {
+                    width: 100%;
+                    height: auto;
+                    border-bottom: 1px solid #ddd;
+}
