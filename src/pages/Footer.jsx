@@ -1,4 +1,5 @@
 import React from "react";
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,7 @@ const Footer = () => {
                 <div className="contact_link_box">
                   <a href="i add some thi">
                     <i className="fa fa-map-marker" aria-hidden="true"></i>
-                    <span> Bombo Kakelenge </span>
+                    <span> Bombo Kakerenge </span>
                   </a>
                   <a href="i add some thi">
                     <i className="fa fa-phone" aria-hidden="true"></i>
@@ -24,20 +25,24 @@ const Footer = () => {
                     <i className="fa fa-envelope" aria-hidden="true"></i>
                     <span> kasuleyoweri@gmail.com </span>
                   </a>
+                  <a href="i add some thi">
+                    <i className="fa fa-envelope" aria-hidden="true"></i>
+                    <span>moonlandprimaryshcool@gmail.com </span>
+                  </a>
                 </div>
               </div>
               <div className="info_social">
-                <a href="i add some thi">
-                  <i className="fa fa-facebook" aria-hidden="true"></i>
+                <a href="your_facebook_link">
+                  <FaFacebook />
                 </a>
-                <a href="i add some thi">
-                  <i className="fa fa-twitter" aria-hidden="true"></i>
+                <a href="your_twitter_link">
+                  <FaTwitter />
                 </a>
-                <a href="i add some thi">
-                  <i className="fa fa-linkedin" aria-hidden="true"></i>
+                <a href="your_youtube_link">
+                  <FaYoutube />
                 </a>
-                <a href="i add some thi">
-                  <i className="fa fa-instagram" aria-hidden="true"></i>
+                <a href="your_instagram_link">
+                  <FaInstagram />
                 </a>
               </div>
             </div>

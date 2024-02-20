@@ -13,7 +13,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          <img src={Logo} alt="Logo" style={{ width: "200px" }} />
+          <img src={Logo} alt="Logo" style={{ width: "140px" }} />
         </Link>
         <button
           className="navbar-toggler"
@@ -24,6 +24,7 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
           onClick={toggleNavbar}
+          style={{ color: "rgb(54,42,150)" }}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -31,15 +32,15 @@ const Navbar = () => {
           className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
           id="navbarNav"
         >
-          <ul className="navbar-nav ml-auto">
+          <ul className="navbar-nav ml-auto text-center  ">
             <li className="nav-item">
               <Link className="nav-link" to="/about">
-                About
+                About Us
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/contact">
-                Contact
+                Contact Us
               </Link>
             </li>
             <li className="nav-item">
@@ -48,8 +49,15 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to="/staff">
+                Staff
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/donate">
-                Donate
+                <button type="submit" className="submit">
+                  Donate
+                </button>
               </Link>
             </li>
           </ul>

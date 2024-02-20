@@ -6,6 +6,7 @@ import FooterSection from "./pages/Footer"; // Import the FooterSection componen
 import Home from "./pages/Home";
 import Nav from "./pages/Nav"; // Import the Nav component
 import Portifolia from "./pages/Portifolia";
+import Staff from "./pages/Staff";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="donate" element={<Donate />} />
         <Route path="portifolia" element={<Portifolia />} />
+        <Route path="staff" element={<Staff />} />
       </Routes>
       <FooterSection /> {/* Include the footer at the bottom of the page */}
     </div>

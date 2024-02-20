@@ -10,11 +10,12 @@
 }
 
 .navbar-toggler {
-  border-color: #ffffff;
+  border: solid 2px rgb(54, 42, 150);
 }
 
 .navbar-toggler-icon {
   background-color: #ffffff;
+  color: rgb(54, 42, 150);
 }
 
 .navbar-nav .nav-link {
@@ -24,5 +25,25 @@
 
 .navbar-nav .nav-link:hover {
   color: rgb(54, 42, 150);
-  font-size: large;
+
+
+}
+
+
+.submit {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  padding: 4px 20px;
+  background-color: #00bbf0;
+  color: #ffffff;
+  border-radius: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+  margin-top: 0px;
+}
+
+.submit:hover {
+  background-color: #007fa4;
 }
