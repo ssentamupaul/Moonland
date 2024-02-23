@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Modal } from "react-bootstrap";
 import BabyClassImage1 from "./img/babya.JPG";
 import BabyClassImage2 from "./img/babyb.JPG";
@@ -53,63 +53,82 @@ const Portifolia = () => {
 
   const filteredPhotos = selectedCategory ? photos[selectedCategory] : [];
 
-  return (
-    <div className="container heading_container heading_center text-center">
-      <h1 className="text-center">Our Gallery</h1>
-      <div className="align-items-center justfy-content-betweeen">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => handleCategoryClick(category)}
-            style={{
-              marginRight: "10px",
-              marginBottom: "10px",
-              backgroundColor:
-                selectedCategory === category ? "lightblue" : "white",
-            }}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-      <div className="row" style={{ marginTop: "20px" }}>
-        {filteredPhotos.map((photo, index) => (
-          <div key={index} className="col-lg-4 col-md-4 col-sm-6 mb-2">
-            <Card
-              style={{ cursor: "pointer" }}
-              onClick={() => handlePhotoClick(photo, selectedCategory)}
-            >
-              <Card.Img
-                variant="top"
-                src={photo}
-                alt={`Photo ${index + 1}`}
-                style={{ width: "100%", height: "auto" }}
-              />
-            </Card>
-          </div>
-        ))}
-      </div>
+  const [typedText, setTypedText] = useState("");
+  const targetText = "  Images";
 
-      <Modal
-        show={selectedPhoto !== null}
-        onHide={() => setSelectedPhoto(null)}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>
-            {selectedCategoryTitle ? `${selectedCategoryTitle} - ` : ""}
-            Selected Photo
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {selectedPhoto && (
-            <img
-              src={selectedPhoto}
-              alt="Selected Photo"
-              style={{ width: "100%" }}
-            />
-          )}
-        </Modal.Body>
-      </Modal>
+  useEffect(() => {
+    let index = 0;
+
+    const intervalId = setInterval(() => {
+      setTypedText(targetText.slice(0, index));
+      index += 1;
+
+      if (index > targetText.length) {
+        index = 0;
+      }
+    }, 300);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <div className=" PortifoliaPage border-bottom border-white">
+      <div className="container myGaley ">
+        <h1 className="text-center mb-5 pt-5 ">Our Gallery</h1>
+        <p className="text-center ">
+          Click on these buttons to view <span className="Us">{typedText}</span>{" "}
+        </p>
+        <div className="align-items-center justfy-content-betweeen  text-center">
+          {categories.map((category) => (
+            <button
+              className="portfolio-button"
+              key={category}
+              onClick={() => handleCategoryClick(category)}
+              style={{
+                marginRight: "10px",
+                marginBottom: "10px",
+                backgroundColor:
+                  selectedCategory === category ? "lightblue" : "white",
+              }}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+        <div className="row mb-5" style={{ marginTop: "20px" }}>
+          {filteredPhotos.map((photo, index) => (
+            <div key={index} className="col-lg-4 col-md-4 col-sm-6 mb-2">
+              <Card
+                style={{ cursor: "pointer" }}
+                onClick={() => handlePhotoClick(photo, selectedCategory)}
+              >
+                <Card.Img
+                  className="portfolio-image"
+                  variant="top"
+                  src={photo}
+                  alt={`Photo ${index + 1}`}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </Card>
+            </div>
+          ))}
+        </div>
+
+        <Modal
+          show={selectedPhoto !== null}
+          onHide={() => setSelectedPhoto(null)}
+        >
+          <Modal.Body>
+            {selectedPhoto && (
+              <img
+                src={selectedPhoto}
+                alt="Selected Photo"
+                style={{ width: "100%" }}
+              />
+            )}
+          </Modal.Body>
+        </Modal>
+      </div>
     </div>
   );
 };
