@@ -1,46 +1,36 @@
-import React from "react";
-// import homeImage1 from "./img/homeImage1.jpg";
-// import homeImage2 from "./img/homeImage2.jpg";
-// import homeImage3 from "./img/homeImage3.jpg";
+import React, { useEffect, useState } from "react";
 
-const HeroSection = () => {
-  const scrollSections = [
-    {
-      title: "Welcome to Moonland Primary School",
-      description: "Excellency With Godliness",
-    },
-    {
-      title: "Religious character",
-      description: "Christian Based",
-    },
-    {
-      title: "Our Vision:",
-      description:
-        "To Ensure That Unprivileged Young children access quality education",
-    },
-  ];
+const Home = () => {
+  const [typedText, setTypedText] = useState("");
+  const targetText = " Godliness";
+
+  useEffect(() => {
+    let index = 0;
+
+    const intervalId = setInterval(() => {
+      setTypedText(targetText.slice(0, index));
+      index += 1;
+
+      if (index > targetText.length) {
+        index = 0; // Reset the index to start typing again
+      }
+    }, 300); // Adjust the typing speed as needed
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
-    <section className="hero-section">
-      {/* Background images for each section */}
-      <div className="background-image background-image-1"></div>
-      <div className="background-image background-image-2"></div>
-      <div className="background-image background-image-3"></div>
-
-      {/* Container for content */}
-      <div className="hero-content-container">
-        <div className="scroll-container">
-          {/* Map over the scroll sections array */}
-          {scrollSections.map((section, index) => (
-            <div key={index} className="scroll-section">
-              <h2>{section.title}</h2>
-              <p>{section.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className="Landingpage">
+      <h1 className="hometxt text-light">
+        Welcome To Moonland Nursery And Primary School
+      </h1>
+      <h1 className="text-light">
+        <h1 className="text-light hometxt2">
+          Excellency With <span className="Us"> {typedText} </span>
+        </h1>
+      </h1>
+    </div>
   );
 };
 
-export default HeroSection;
+export default Home;
